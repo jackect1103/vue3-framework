@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "types": ["node"],
+    "typeRoots": [
+      "node_modules/@types", // 默认值
+      "types"
+    ],
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    //安装别人写好的声明文件
+    "noImplicitAny": true,
+    // 严格属性初始化
+    "strictPropertyInitialization": false,
+    "baseUrl": "./",
+    "paths":{
+      "@": ["src"],
+      "@/*": ["src/*"],
+    },
+    "suppressImplicitAnyIndexErrors":true,
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./types", "src/api"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "exclude": ["node_modules"],
+}

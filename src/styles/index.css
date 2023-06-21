@@ -1,0 +1,4 @@
+@import "normalize.css";
+@import "ant-design-vue/dist/antd.css";
+@import "./common.less";
+@import "./antd.less";

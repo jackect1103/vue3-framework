@@ -1,0 +1,52 @@
+.ant-btn {
+  border-radius: 3px;
+}
+
+.ant-input {
+  border-radius: 3px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
+.ant-table:hover .ant-table-content .ant-table-fixed-right .ant-table-body-outer .ant-table-body-inner::-webkit-scrollbar-thumb
+{
+  background-color: #F5F5F5;
+}
+
+.ant-table .ant-table-content .ant-table-fixed-right .ant-table-body-outer .ant-table-body-inner::-webkit-scrollbar-thumb
+{
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+  background-color: #dddddd;
+  border-radius: 8px;
+}
+
+/*表格的右边框*/
+.ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  content: none;
+}
+
+.ant-table-thead > tr > th {
+  font-weight: 600;
+}
+
+.ant-table-ping-right:not(.ant-table-has-fix-right) .ant-table-container::after {
+  content: none;
+}

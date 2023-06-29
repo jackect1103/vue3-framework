@@ -13,6 +13,8 @@ import ComSelect from './common/com-dropDownSelect/index.vue';
 import ComCascadeSelect from './common/com-cascadeSelect/index.vue'; // 级联组件
 import ComRangePicker from './common/com-rangePicker/index.vue'; // 日期选择器
 import ComModal from './common/com-modal/index.vue'; // 弹出窗
+import ComDrawer from './common/com-drawer/index.vue'; // 抽屉
+import ComUploadImage from './common/com-upload-image/index.vue'; // 上传图片
 
 export default function install(app:App) {
     app.component('ComHeader',ComHeader)
@@ -26,4 +28,6 @@ export default function install(app:App) {
     app.component('ComCascadeSelect',ComCascadeSelect)
     app.component('ComRangePicker',ComRangePicker)
     app.component('ComModal',ComModal)
+    app.component('ComDrawer',ComDrawer)
+    app.component('ComUploadImage',ComUploadImage)
 }

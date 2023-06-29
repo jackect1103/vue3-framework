@@ -10,6 +10,8 @@
     :placeholder="$props.placeholder"
     :disabled="$props.disabled"
     :style="selectW"
+    :showSearch="$props.showSearch"
+    @search="handleSearch"
     @change="handleChange"
     @popupScroll="handleScroll"
   >
@@ -39,16 +41,18 @@ const $props = withDefaults(
     width?: strOrNum
     mode?: strOrNum
     disabled?: boolean
+    showSearch?: boolean
     options: Array<options>
   }>(),
   {
     placeholder: '请选择',
     width: '200',
     disabled: false,
+    showSearch: false,
     mode: 'combobox', // ('multiple' | 'tags' 多选) | 'combobox' 单选
   }
 )
-const $emit = defineEmits(['on-change', 'on-scroll'])
+const $emit = defineEmits(['on-change', 'on-scroll', 'on-search'])
 let options = ref($props.options)
 let keyWord = ref<string>($props.value)
 
@@ -77,21 +81,33 @@ const handleChange = (e: strOrNum) => {
 }
 
 /**
+ * 选中 option，或 input 的 value 变化
+ * @param e
+ */
+const handleSearch = instance.$debounce((value: any) => {
+  $emit('on-search', value)
+}, 500)
+
+/**
  * 下拉列表滚动时的回调
  * @param e
  */
-function handleScroll(e: any) {
+// function handleScroll(e: any) {
+//   const { target } = e
+//   // target.scrollTop + target.offsetHeight === target.scrollHeight  判断是否滑动到底部
+//   if (target.scrollTop + target.offsetHeight === target.scrollHeight) {
+//     // 在这里调用接口
+//     $emit('on-scroll')
+//   }
+// }
+const handleScroll = instance.$debounce((e: any) => {
   const { target } = e
   // target.scrollTop + target.offsetHeight === target.scrollHeight  判断是否滑动到底部
   if (target.scrollTop + target.offsetHeight === target.scrollHeight) {
     // 在这里调用接口
     $emit('on-scroll')
   }
-}
-// const scroll = () => {
-//     console.log('instance', instance.$debounce)
-//     instance.$debounce(handleScroll,500)
-// }
+}, 2000)
 </script>
 
 <style lang="less">

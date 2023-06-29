@@ -12,20 +12,24 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { Moment } from 'moment'
-interface timeInterFace {
-  value?: any
+const $props = withDefaults(defineProps<{
+  timeValue?: any
   format?: string
-}
-const $props = withDefaults(defineProps<timeInterFace>(), {
-  value: [],
+}>(), {
+  timeValue: [],
   format: 'YYYY-MM-DD HH:mm',
 })
+
+
 const $emit = defineEmits(['on-change'])
 let datePicker = ref<Moment[]>([])
 watch(
-  () => $props.value,
-  (datePicker) => {
-    datePicker.value = datePicker
+  () => $props.timeValue,
+  (timeValue) => {
+    datePicker.value = timeValue
+  },{
+    deep:true,
+    immediate:true
   }
 )
 const handleDatePicker = (time: any) => {
